@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch Case</title>
+</head>
+<body>
+<h2>Có bao nhiêu ngày trong tháng: </h2>
+<input type="text" id="txtThang" placeholder="Nhập tháng">
+<button onclick="tinhSoNgay()">Tính số ngày</button>
+<div id="result"></div>
+<script>
+
+    function tinhSoNgay() {
+        var m = document.getElementById("txtThang").value;
+        var month = parseInt(m)
+        switch (month) {
+            case 1 :
+                document.getElementById('result').innerHTML = 'Tháng 1 có 31 ngày';
+                break;
+            case 2 :
+                document.getElementById('result').innerHTML = 'Tháng 2 có 28 ngày trong các năm thường hay 29 ngày trong các năm nhuận';
+                break;
+            case 3 :
+                document.getElementById('result').innerHTML = 'Tháng 3 có 31 ngày';
+                break;
+            case 4 :
+                document.getElementById('result').innerHTML = 'Tháng 4 có 30 ngày';
+                break;
+            case 5 :
+                document.getElementById('result').innerHTML = 'Tháng 5 có 31 ngày';
+                break;
+            case 6 :
+                document.getElementById('result').innerHTML = 'Tháng 6 có 30 ngày';
+                break;
+            case 7 :
+                document.getElementById('result').innerHTML = 'Tháng 7 có 31 ngày';
+                break;
+            case 8 :
+                document.getElementById('result').innerHTML = 'Tháng 8 có 31 ngày';
+                break;
+            case 9 :
+                document.getElementById('result').innerHTML = 'Tháng 9 có 30 ngày';
+                break;
+            case 10 :
+                document.getElementById('result').innerHTML = 'Tháng 10 có 31 ngày';
+                break;
+            case 11 :
+                document.getElementById('result').innerHTML = 'Tháng 11 có 30 ngày';
+                break;
+            case 12 :
+                document.getElementById('result').innerHTML = 'Tháng 12 có 31 ngày';
+                break;
+            default: alert('Mời bạn nhập lại 1-12 !')
+        }
+
+    }
+</script>
+</body>
+</html>

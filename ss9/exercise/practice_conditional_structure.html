@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="s1()">Bài 1</button>
+<button onclick="s2()">Bài 2</button>
+<button onclick="s3()">Bài 3</button>
+<button onclick="s4()">Bài 4</button>
+<button onclick="s5()">Bài 5</button>
+<button onclick="s6()">Bài 6</button>
+<button onclick="s7()">Bài 7</button>
+</body>
+<script>
+    function s1() {
+        let a = parseInt(prompt('Enter number A: '));
+        let b = parseInt(prompt('Enter number B: '));
+        if (a % b ==0){
+            alert("A chia hết cho B");
+        } else {
+            alert("A không chia hết cho B");
+        }
+    }
+
+    function s2() {
+        let old = parseInt(prompt('Bạn bao nhiêu tuổi ?'))
+        if (old >= 15){
+            alert("Bạn đủ điều kiện để vào lớp 10 !");
+        } else {
+            alert('Bạn chưa đủ tuổi !');
+        }
+    }
+
+    function s3() {
+        let n = parseInt(prompt('Enter anything number: '));
+        if (n>0){
+            document.write(n + " > 0");
+        }
+        else{
+            document.write(n + " < 0");
+        }
+    }
+
+    function s4() {
+        let a = parseInt(prompt('Enter number A: '));
+        let b = parseInt(prompt('Enter number B: '));
+        let c = parseInt(prompt('Enter number c: '));
+        let max = a;
+        if (a>b){
+            if (a>c){
+                document.write("MAX = " + max);
+            } else {
+                max = c;
+                document.write("MAX = " + max);
+            }
+        } else {
+            if (b>c){
+                max = b;
+                document.write("MAX = " + max);
+            } else {
+                max = c;
+                document.write("MAX = " + max);
+            }
+        }
+    }
+
+    function s5() {
+        let test = parseInt(prompt("Enter the points: "));
+        let testMid = parseInt(prompt("Enter the Mid points: "));
+        let testFinal = parseInt(prompt("Enter the Final points: "));
+        let GPA = (test + testMid + testFinal)/3;
+        if (GPA >= 7.5){
+            alert('Giỏi');
+        }else if (GPA >= 6.5){
+                alert('Khá');
+            }
+            else if (GPA >= 5){
+                    alert('Trung bình');
+        }
+        else {
+            alert("Kém");
+        }
+    }
+
+    function s6() {
+        let doanhSo = parseInt(prompt("Nhập doanh số "));
+        let phanTram = parseInt(prompt("nhập phần trăm"))
+        let hoaHong = doanhSo * (phanTram/100);
+
+        document.write("Hoa hồng được nhận: " + hoaHong);
+    }
+
+    function s7() {
+        let phut = parseInt(prompt("Nhập số phút sử dụng: "));
+        let cuocDienThoai;
+        if (phut > 0 && phut <= 50){
+            cuocDienThoai = 25000 + 600*phut;
+            document.write("Số tiền phải trả: " +cuocDienThoai);
+        }
+        if (phut > 50 && phut <= 150){
+            cuocDienThoai = 25000 + 600*50 + (phut-50)*400;
+            document.write("Số tiền phải trả: " +cuocDienThoai);
+        }
+        if (phut > 150){
+            cuocDienThoai = 25000 + 600*50 + 150*400 + (phut-200)*200;
+            document.write("Số tiền phải trả: " +cuocDienThoai);
+        }
+    }
+</script>
+</html>

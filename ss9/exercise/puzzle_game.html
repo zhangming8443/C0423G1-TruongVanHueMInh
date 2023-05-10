@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+<body>
+<button type="button" onclick="picture1()"><img id="img1" src="img_puzzle_game/funny-cat1_part1x1.jpg" height="160" width="800"/></button>
+<br>
+<button type="button" onclick="picture2()"><img id="img2" src="img_puzzle_game/monkey_part2x1.jpg" height="160" width="800"/></button>
+<br>
+<button type="button" onclick="picture3()"><img id="img3" src="img_puzzle_game/panda_swap_part3x1.jpg" height="160" width="800"/></button>
+<br>
+<button type="button" onclick="picture4()"><img id="img4" src="img_puzzle_game/monkey_part4x1.jpg" height="160" width="800"/></button>
+<br>
+<button type="button" onclick="picture5()"><img id="img5" src="img_puzzle_game/funny-cat1_part5x1.jpg" height="160" width="800"/></button>
+<script>
+    var imgCat1= "img_puzzle_game/funny-cat1_part1x1.jpg"
+    var imgCat2= "img_puzzle_game/funny-cat1_part2x1.jpg"
+    var imgCat3= "img_puzzle_game/funny-cat1_part3x1.jpg"
+    var imgCat4= "img_puzzle_game/funny-cat1_part4x1.jpg"
+    var imgCat5= "img_puzzle_game/funny-cat1_part5x1.jpg"
+
+
+    var imgMonkey1 = "img_puzzle_game/monkey_part1x1.jpg"
+    var imgMonkey2 = "img_puzzle_game/monkey_part2x1.jpg"
+    var imgMonkey3 = "img_puzzle_game/monkey_part3x1.jpg"
+    var imgMonkey4 = "img_puzzle_game/monkey_part4x1.jpg"
+    var imgMonkey5 = "img_puzzle_game/monkey_part5x1.jpg"
+
+    var imgPanda1 = "img_puzzle_game/panda_swap_part1x1.jpg"
+    var imgPanda2 = "img_puzzle_game/panda_swap_part2x1.jpg"
+    var imgPanda3 = "img_puzzle_game/panda_swap_part3x1.jpg"
+    var imgPanda4 = "img_puzzle_game/panda_swap_part4x1.jpg"
+    var imgPanda5 = "img_puzzle_game/panda_swap_part5x1.jpg"
+
+    var imgN1 = imgCat1;
+    var imgN2 = imgMonkey2;
+    var imgN3 = imgPanda3
+    var imgN4 = imgMonkey4;
+    var imgN5 = imgCat5
+
+    document.addEventListener("click", check);
+    function picture1() {
+        imgN1 = document.getElementById("img1").getAttribute("src");
+        console.log(imgN1)
+        switch (imgN1) {
+            case imgCat1 :
+                document.getElementById("img1").src = imgMonkey1;
+                imgN1 = imgMonkey1;
+                break;
+
+            case imgMonkey1:
+                document.getElementById("img1").src = imgPanda1;
+                imgN1 = imgPanda1;
+                break;
+
+            case imgPanda1:
+                document.getElementById("img1").src = imgCat1;
+                imgN1 = imgCat1;
+                break;
+        }
+
+    }
+    function picture2() {
+        imgN2 = document.getElementById("img2").getAttribute("src");
+        switch (imgN2) {
+
+            case imgMonkey2:
+                document.getElementById("img2").src = imgPanda2;
+                imgN2 = imgPanda2;
+                break;
+
+            case imgPanda2:
+                document.getElementById("img2").src = imgCat2;
+                imgN2 = imgCat2;
+                break;
+
+            case imgCat2:
+                document.getElementById("img2").src = imgMonkey2;
+                imgN2 = imgMonkey2;
+                break;
+        }
+    }
+    function picture3() {
+        imgN3 = document.getElementById("img3").getAttribute("src");
+        switch (imgN3) {
+
+            case imgCat3 :
+                document.getElementById("img3").src = imgMonkey3;
+                imgN3 = imgMonkey3;
+                break;
+
+            case imgMonkey3:
+                document.getElementById("img3").src = imgPanda3;
+                imgN3 = imgPanda3;
+                break;
+
+            case imgPanda3:
+                document.getElementById("img3").src = imgCat3;
+                imgN3 = imgCat3;
+                break;
+        }
+    }
+    function picture4() {
+        imgN4 = document.getElementById("img4").getAttribute("src");
+        switch (imgN4) {
+
+            case imgMonkey4:
+                document.getElementById("img4").src = imgPanda4;
+                imgN4 = imgPanda4;
+                break;
+
+            case imgPanda4:
+                document.getElementById("img4").src = imgCat4;
+                imgN4 = imgCat4;
+                break;
+
+            case imgCat4:
+                document.getElementById("img4").src = imgMonkey4;
+                imgN4 = imgMonkey4;
+                break;
+        }
+    }
+    function picture5() {
+        imgN5 = document.getElementById("img5").getAttribute("src");
+        switch (imgN5) {
+
+            case imgCat5 :
+                document.getElementById("img5").src = imgMonkey5;
+                imgN5 = imgMonkey5;
+                break;
+
+            case imgMonkey5:
+                document.getElementById("img5").src = imgPanda5;
+                imgN5 = imgPanda5;
+                break;
+
+            case imgPanda5:
+                document.getElementById("img5").src = imgCat5;
+                imgN5 = imgCat5;
+                break;
+        }
+    }
+    function check() {
+        console.log(imgN1)
+        console.log(imgN2)
+        console.log(imgN3)
+        console.log(imgN4)
+        console.log(imgN5)
+        if (imgN1 === imgCat1 && imgN2 === imgCat2 && imgN3 === imgCat3 && imgN4 === imgCat4 && imgN5 === imgCat5) {
+            alert("Oke");
+        } else if (imgN1 === imgMonkey1 && imgN2 === imgMonkey2 && imgN3 === imgMonkey3 && imgN4 === imgMonkey4 && imgN5 === imgMonkey5) {
+            alert("Oke");
+        } else if (imgN1 === imgPanda1 && imgN2 === imgPanda2 && imgN3 === imgPanda3 && imgN4 === imgPanda4 && imgN5 === imgPanda5) {
+            alert("Oke");
+        }
+
+    }
+    
+</script>
+
+</body>
+</html>
