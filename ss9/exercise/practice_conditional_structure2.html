@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="s1()">Bài 1</button>
+<button onclick="s2()">Bài 2</button>
+<button onclick="s3()">Bài 3</button>
+<button onclick="s4()">Bài 4</button>
+<button onclick="s5()">Bài 5</button>
+<button onclick="s6()">Bài 6</button>
+<button onclick="s7()">Bài 7</button>
+<button onclick="s8()">Bài 8</button>
+<button onclick="s9()">Bài 9</button>
+<button onclick="s10()">Bài 10</button>
+<button onclick="s11()">Bài 11</button>
+<button onclick="s12()">Bài 12</button>
+<script>
+    function s1() {
+        let c = parseInt(prompt("Nhập độ C: "));
+        let f = c * 9/5 +32;
+        alert("Độ F: " + f);
+    }
+
+    function s2() {
+        let m = parseInt(prompt("Nhập met: "));
+        let ft = m * 3.2808;
+        alert("ft = " + ft);
+    }
+
+    function s3() {
+        let a = parseInt(prompt("Nhập cạnh a: "));
+        let dienTichHinhVuong = a*a;
+        alert("Diện tích hình vuông = " + dienTichHinhVuong);
+    }
+
+    function s4() {
+        let a = parseInt(prompt("Nhập cạnh a: "));
+        let b = parseInt(prompt("Nhập cạnh b: "));
+        let dienTichHCN = a*b;
+        alert("Diện tích hình chữ nhật = " + dienTichHCN);
+    }
+
+    function s5() {
+        let a = parseInt(prompt("Nhập cạnh a: "));
+        let b = parseInt(prompt("Nhập cạnh b: "));
+        let dienTichTamGiac =1/2 * a * b;
+        alert("Diện tích hình tam giác = " + dienTichTamGiac);
+
+    }
+
+    function s6() {
+        let a = parseInt(prompt("Nhập a:"));
+        let b = parseInt(prompt("Nhập b:"));
+        if (a==0 && b==0){
+            alert('Phương trình vô số nghiệm');
+        } else if (a!=0 && b==0){
+            alert('Phương trình có nghiệm x = 0');
+        } else if (a==0 && b!=0){
+            alert('Phương trình vô nghiệm');
+        }
+        else {
+            alert('Phương trình có nghiệm x = ' + -b/a)
+        }
+    }
+
+    function s7() {
+        let a = parseInt(prompt("Nhập a:"));
+        let b = parseInt(prompt("Nhập b:"));
+        let c = parseInt(prompt("Nhập c:"));
+        let x;
+        let x1;
+        let x2;
+        let delta = b*b - 4*a*c;
+        if (delta<0){
+            alert('Phương trình vô nghiệm');
+        } else if (delta == 0){
+            x = -b/(2*a)
+            alert('Phương trình có nghiệm' + x)
+        } else if (delta>0){
+            x1 = (-b + Math.sqrt(delta))/(2*a);
+            x2 = (-b - Math.sqrt(delta))/(2*a);
+            document.write(x1 + "<br>");
+            document.write(x2);
+        }
+    }
+
+    function s8() {
+        let olds = parseInt(prompt("Nhập số tuổi để kiểm tra: "));
+        if (olds > 0 && olds < 120){
+            alert("Tuổi của người này là: " + olds);
+        }
+        else {
+            alert("Số này không phải là tuổi !!!")
+        }
+
+    }
+
+    function s9() {
+        let a = parseFloat(prompt("Nhập cạnh a: "));
+        let b = parseFloat(prompt("Nhập cạnh b: "));
+        let c = parseFloat(prompt("Nhập cạnh c: "));
+
+        if(a > 0 && b > 0 && c >0) {
+            if (a+b > c && b+c > a && a+c > b){
+                alert("Đây là 1 tam giác");
+            }else {
+                alert("Đây không phải là 1 tam giác");
+            }
+        }else {
+            alert("Đây không phải là 1 tam giác");
+        }
+    }
+    
+    function s10() {
+        let dien = parseInt(prompt("Nhập số kW điện tiêu thụ: "))
+        let tien;
+        let bac1 = 1678;
+        let bac2 = 1734;
+        let bac3 = 2014;
+        let bac4 = 2536;
+        let bac5 = 2834;
+        let bac6 = 2927;
+
+        if (dien<0){
+            alert('Vui lòng nhập lại. Số điện không được nhỏ hơn không !');
+        } else if (dien<=50){
+            tien = dien*bac1;
+            alert('Bạn đã dùng điện khoảng 0 - 50kW, tiền bạn phải trả là: ' + tien + " vnd");
+        } else if (dien<=100){
+            tien = 50*bac1 + ((dien-50)*bac2);
+            alert('Bạn đã dùng điện khoảng 51 - 100kW, tiền bạn phải trả là: ' + tien + " vnd");
+        } else if (dien<=200){
+            tien = 50*bac1 + 50*bac2 + (dien-100)*bac3;
+            alert('Bạn đã dùng điện khoảng 101 - 200kW, tiền bạn phải trả là: ' + tien + " vnd");
+        } else if (dien<=300){
+            tien = 50*bac1 + 50*bac2 + 100*bac3 + (dien-200)*bac4;
+            alert('Bạn đã dùng điện khoảng 201 - 300kW, tiền bạn phải trả là: ' + tien + " vnd");
+        } else if (dien<=400){
+            tien = 50*bac1 + 50*bac2 + 100*bac3 + 100*bac4 + (dien-300)*bac5;
+            alert('Bạn đã dùng điện khoảng 301 - 400kW, tiền bạn phải trả là: ' + tien + " vnd");
+        } else if (dien>400){
+            tien = 50*bac1 + 50*bac2 + 100*bac3 + 100*bac4 + 100*bac5 + (dien-400)*bac6;
+            alert('Bạn đã dùng điện trên 400kw, tiền bạn phải trả là: ' + tien + " vnd");
+        }
+    }
+
+    function s11() {
+        let thuNhap = parseInt(prompt("Nhập thu nhập tháng: "));
+        let tienThue;
+        let bac1 = 5/100;
+        let bac2 = 10/100;
+        let bac3 = 15/100;
+        let bac4 = 20/100;
+        let bac5 = 25/100;
+        let bac6 = 30/100;
+        let bac7 = 35/100;
+        if (thuNhap<0){
+            alert('Vui lòng nhập lại. Thu nhập không được nhỏ hơn 0 !');
+        } else if (thuNhap<=5000000){
+            tienThue = thuNhap*bac1;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 1, số tiền cần đóng: ' + tienThue);
+        } else if (thuNhap<=10000000){
+            tienThue = thuNhap*bac2;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 2, số tiền cần đóng: ' + tienThue);
+        } else if (thuNhap<=18000000){
+            tienThue = thuNhap*bac3;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 3, số tiền cần đóng: ' + tienThue);
+        } else if (thuNhap<=32000000){
+            tienThue = thuNhap*bac4;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 4, số tiền cần đóng: ' + tienThue);
+        } else if (thuNhap<=52000000){
+            tienThue = thuNhap*bac5;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 5, số tiền cần đóng: ' + tienThue);
+        } else if (thuNhap<=80000000) {
+            tienThue = thuNhap*bac6;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 6, số tiền cần đóng: ' + tienThue);
+        } else if (thuNhap>80000000) {
+            tienThue = thuNhap*bac7;
+            alert('Thuế thu nhập của bạn trong khoảng bậc 7, số tiền cần đóng: ' + tienThue);
+        }
+    }
+
+   function s12() {
+        let soTienVay = parseInt(prompt(""))
+   }
+</script>
+</body>
+</html>
