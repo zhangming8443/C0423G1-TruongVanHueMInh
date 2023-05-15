@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html><head>
+    <title>You must love me</title>
+    <meta http-equiv="content-type" charset=utf-8">
+    <script>
+        function noHover()
+        {
+            var x = Math.round(Math.random() * window.innerWidth);
+            var y = Math.round(Math.random() * window.innerHeight);
+            document.getElementById('btnNo').style.left = x + 'px';
+            document.getElementById('btnNo').style.top = y + 'px';
+        }
+    </script>
+</head>
+<body align = "center">
+<h1>Do you love me?</h1>
+<input type="button" value=" YES " onclick="alert('You are right <3 !')">
+<input type="button" id="btnNo" value="  NO  " onmouseover="noHover()" style="position:absolute">
+
+</body></html>

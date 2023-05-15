@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Practice Loop</title>
+</head>
+<body>
+<button onclick="s1()">Bài 1</button>
+<button onclick="s2()">Bài 2</button>
+<button onclick="s3()">Bài 3</button>
+<button onclick="s4()">Bài 4</button>
+<button onclick="s5()">Bài 5</button>
+<button onclick="s6()">Bài 6</button>
+<button onclick="s7()">Bài 7</button>
+<h3>Game: Hãy đoán thử xem (bài 8)</h3>
+<button onclick="s8()">Play</button>
+</body>
+<script>
+    function  s1(){
+        let n = 100;
+        for (let i = 1; i < n; i++){
+            document.write(i + "</br>");
+            if (i == 99){
+                document.write("Complete");
+            }
+        }
+    }
+
+    function s2() {
+        let nhietDo = +prompt("Vui lòng nhập nhiệt độ để kiểm tra: ");
+        do {
+            if (nhietDo>100){
+                alert("Vui lòng giảm nhiệt độ !");
+                nhietDo = +prompt("Vui lòng nhập nhiệt độ để kiểm tra: ");
+            }
+            else if (nhietDo <20){
+                alert("Vui lòng tăng nhiệt độ ! ");
+                nhietDo = +prompt("Vui lòng nhập nhiệt độ để kiểm tra: ");
+            } else {
+                document.write("Nhiệt độ đã nhập là: " + nhietDo);
+            }
+        }
+        while (nhietDo > 100 || nhietDo < 20)
+    }
+
+    function s3() {
+        const number = +prompt("Enter the number of terms: ")
+         debugger
+        let n1 = 0, n2= 1, nextTerm;
+        document.write("Fibonacci series: " + "</br>" )
+        for (let i = 1; i <= number; i ++){
+            document.write(n1 + "</br>")
+            nextTerm = n1 + n2;
+            n1 = n2;
+            n2 = nextTerm;
+        }
+    }
+
+    function s4() {
+        const number = +prompt("Enter the number of terms: ")
+        debugger
+        let n1 = 0, n2= 1, nextTerm;
+        document.write("Fibonacci series: " + "</br>" )
+        for (let i = 1; i <= number; i ++){
+            document.writeln(n1 + "</br>")
+            nextTerm = n1 + n2;
+            n1 = n2;
+            n2 = nextTerm;
+            if (n1 % 5 == 0) {
+                document.write("Fibonacci chia hết cho 5: " + n1);
+                break
+            }
+        }
+    }
+
+    function s5() {
+        const number = +prompt("Enter the number of terms: ")
+        let sum = 0;
+        let n1 = 0, n2= 1, nextTerm;
+        document.write("Fibonacci series: " + "</br>" )
+        for (let i = 1; i <= number; i ++){
+            nextTerm = n1 + n2;
+            n1 = n2;
+            n2 = nextTerm;
+            sum += n1;
+        }
+        document.write(sum + "</br>")
+
+    }
+    function s6() {
+        let sum = 0;
+        let number = +prompt("Enter the number: ")
+        for (let i = 0; i <= number; i ++){
+            if (i % 7 == 0){
+                sum += i;
+            }
+        }
+        document.write("Tổng của các số chia hết cho 7 là: " + sum);
+    }
+    function s7() {
+        for (let i = 1; i <= 100; i++){
+            if (i % 3 === 0 && i % 5 !== 0){
+                document.write("Fizz" + "</br>");
+                continue;
+            } else if (i % 3 === 0 && i % 5 === 0){
+                document.write("FizzBuzz" + "</br>");
+                continue;
+            } else if (i % 3 !== 0 && i % 5 === 0){
+                document.write("Buzz" + "</br>");
+                continue;
+            }
+            document.write(i + "</br>");
+        }
+    }
+
+    function s8() {
+        let number = +prompt("Nhập số lớn nhất cho khoảng bạn cần đoán: ")
+        let number_ran = Math.floor(Math.random() * number);
+        let number_check = +prompt("Nhập số bạn đoán: ");
+        let count = 0;
+        while (number_check !== number_ran){
+            count++;
+            if (count === 3){
+                alert("Game over !")
+                break;
+            }
+             else if (number_check > number_ran){
+                alert("Số bạn đoán đã lớn hơn");
+            } else {
+                alert("Số bạn đoán đã nhỏ hơn");
+            }
+            number_check = +prompt("Nhập số bạn đoán: ");
+        }
+        if (count === 3){
+            document.write("Game Over !")
+        }else {
+            document.write("You are winner !")
+        }
+
+    }
+</script>
+</html>

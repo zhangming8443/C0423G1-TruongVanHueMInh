@@ -184,7 +184,36 @@
     }
 
    function s12() {
-        let soTienVay = parseInt(prompt(""))
+        let soTienVay = parseInt(prompt("Nhập số tiền cần vay: "));
+        let soThang = parseInt(prompt("Nhập số tháng (3-6-9-12): "));
+        let tienThanhToan;
+
+       let bac1 = 3/100;
+       let bac2 = 4/100;
+       let bac3 = 5/100;
+       let bac4 = 6/100;
+       switch (soThang) {
+           case 3:
+               tienThanhToan = soTienVay*bac1 + soTienVay/3;
+               alert("Số tiền cần thanh toán cho mỗi tháng: " + tienThanhToan);
+               break;
+           case 6:
+               tienThanhToan = soTienVay*bac2 + soTienVay/6;
+               alert("Số tiền cần thanh toán cho mỗi tháng: " + tienThanhToan);
+               break;
+           case 9:
+               tienThanhToan = soTienVay*bac3 + soTienVay/9;
+               alert("Số tiền cần thanh toán cho mỗi tháng: " + tienThanhToan);
+               break;
+           case 12:
+               tienThanhToan = soTienVay*bac4 + soTienVay/12;
+               alert("Số tiền cần thanh toán cho mỗi tháng: " + tienThanhToan);
+               break;
+            default:
+                soTienVay;
+                break;
+       }
+
    }
 </script>
 </body>
