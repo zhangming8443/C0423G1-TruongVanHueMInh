@@ -3,126 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Chess</title>
-    <style>
-        th {
-            background-color: orange;
-        }
-        body{
-            background-color: orange;
-        }
-        tr:nth-child(odd), td:nth-child(even){
-            background-color: white;
-        }
-        tr:nth-child(odd), td:nth-child(odd){
-            background-color: black;
-        }
-        tr:nth-child(even), td:nth-child(even){
-            background-color: ;
-        }
-    </style>
+
 </head>
 <body>
-<table>
-    <tr>
-        <th></th>
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-        <th>8</th>
-    </tr>
-    <tr>
-        <th>A</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>B</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>C</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>D</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>E</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>F</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>G</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <th>H</th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
+<script>
+    var i;
+    var j;
+    for (i = 0; i <= 5; i++ )
+    {
+        document.write("</br>");
+        for ( j = 0; j < 6-i; j++ )
+        {
+            document.write( "  " );
+        }
+        for ( j = 6-i; j <= 5; j++ )
+        {
+
+            document.write( "*" );
+        }
+    }
+</script>
 
 </body>
 </html>

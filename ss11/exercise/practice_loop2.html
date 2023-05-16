@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="s1()">Bài 1</button>
+<button onclick="s2()">Bài 2</button>
+<button onclick="triangle_one()">Bài 3 A</button>
+<button onclick="triangle_two()">Bài 3 B</button>
+<button onclick="triangle_three()">Bài 3 C</button>
+<button onclick="triangle_four()">Bài 3 D</button>
+<button onclick="rectangle()">Bài 4</button>
+<button onclick="s5()">Bài 5</button>
+
+<script>
+    function s1() {
+        const number = +prompt("Enter the number of terms: ")
+        debugger
+        let n1 = 0, n2 = 1, nextTerm;
+        document.write("Fibonacci series: " + "</br>")
+        for (let i = 1; i <= number; i++) {
+            document.write(n1 + "</br>")
+            nextTerm = n1 + n2;
+            n1 = n2;
+            n2 = nextTerm;
+        }
+    }
+
+    function s2() {
+        let number = +prompt("Nhập số giai thừa cần tính: ")
+        let giaiThua = 1;
+        for (let i = 1; i <= number; i++) {
+            giaiThua = giaiThua * i;
+        }
+        document.write("Giai thừa của " + number + " là: " + giaiThua);
+    }
+
+    function triangle_one() {
+        let n = "";
+        for (let i = 0; i < 5; i++) {
+            n += "*";
+            document.write(n + "</br>")
+        }
+    }
+
+    function triangle_two() {
+        let count = 5;
+        for (let i = 0; i < 5; i++) {
+            for (let j = count; j > 0; j--) {
+                document.write("*");
+            }
+            count--
+            document.write("</br>");
+        }
+        // let h = 5;
+        // for (i = 1; i <= h; i ++){
+        //     for (let j = 0; j < h; j++){
+        //         if (j < h - i){
+        //             document.write("*");
+        //         }
+        //         else {
+        //             document.write("&nbsp;&nbsp;");
+        //         }
+        //     }
+        //     document.write("</br>")
+        // }
+    }
+
+    function triangle_three() {
+        let h = 5;
+        for (let i = 1; i <= h; i++) {
+            for (let j = 0; j < h; j++) {
+                if (j < h - i) {
+                    document.write("&nbsp;&nbsp;");
+                } else {
+                    document.write("*");
+                }
+            }
+            document.write("</br>")
+        }
+    }
+
+    function triangle_four() {
+        let h = 5;
+        let n = " ";
+        for (let i = 1; i <= h; i++) {
+            for (let j = 0; j < i - 1; j++) {
+                n += "&nbsp;&nbsp;";
+            }
+            for (let k = 6; k > i; k--) {
+                n += "*";
+            }
+            n += "</br>";
+        }
+        document.write(n)
+    }
+
+    function rectangle() {
+        for (let i = 1; i <= 7; i++) {
+            for (let j = 1; j <= 21; j++) {
+                if (i === 1 || i === 7 || j === 1 || j === 21) {
+                    document.write("*");
+                } else {
+                    document.write("&nbsp&nbsp");
+                }
+
+            }
+            document.write("</br>");
+        }
+
+    }
+
+
+    function s5() {
+        let sotienVay = +prompt("Nhập số tiền cần vay: ");
+        let soThang = +prompt("Nhập số tháng");
+        let tienThanhToan = 0;
+        let i;
+        let noMoiThang;
+        for (i = 1; i <= soThang; i++) {
+            noMoiThang = sotienVay / soThang;
+            tienThanhToan = sotienVay * 3 / 100 + noMoiThang;
+            document.write(`Số tiền phải đóng tháng ${i} là: ${tienThanhToan} </br>`);
+        }
+    }
+
+
+</script>
+</body>
+</html>
