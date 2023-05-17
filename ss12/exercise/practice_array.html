@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="s1()">Bài 1</button>
+<button onclick="s2()">Bài 2</button>
+<button onclick="s3()">Bài 3</button>
+<button onclick="s4()">Bài 4</button>
+<button onclick="s5()">Bài 5</button>
+<button onclick="s6()">Bài 6</button>
+<div id="result"></div>
+<button onclick="s7()">Bài 7</button>
+<button onclick="s8()">Bài 8</button>
+<script>
+    function s1() {
+        let number = [];
+        for (let i = 0; i < 10; i++){
+            let input = +prompt("Enter a number: ");
+            number.push(input);
+        }
+        document.writeln("Các số lớn hơn 10: ");
+        let x = 0;
+        for (let i = 0; i < number.length; i++){
+            if (number[i] >= 10){
+                x = number[i];
+                document.writeln(x);
+            }
+        }
+    }
+
+    function s2() {
+        let numberArray = [];
+        for (let i = 0; i < 10; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+        console.log(numberArray);
+
+        let max = numberArray[0];
+        for (let i = 0; i<numberArray.length; i++){
+            if (max < numberArray[i]){
+                max = numberArray[i];
+            }
+        }
+        document.writeln("Giá trị lớn nhất: " + max) ;
+    }
+
+    function s3() {
+        let numberArray = [];
+        for (let i = 0; i < 5; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+
+        let max = numberArray[0];
+        for (let i = 0; i<numberArray.length; i++){
+            if (max < numberArray[i]){
+                max = numberArray[i];
+            }
+        }
+        document.writeln("Giá trị lớn nhất: " + max + "</br>") ;
+        let sum =0;
+        for (let i = 0; i < numberArray.length; i++){
+            sum += numberArray[i];
+        }
+        let tb = sum/5;
+        document.writeln("Giá trị trung bình các phần tử: " +  tb);
+    }
+
+    function s4() {
+        let numberArray = [];
+        for (let i = 0; i < 5; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+        document.write(numberArray + "</br>");
+
+        let first = 0; // vi tri dau
+        let last = numberArray.length - 1; // vi tri cuoi
+        while (first<last){
+            let x = numberArray[first];
+            numberArray[first] = numberArray[last];
+            numberArray[last] = x;
+            first++;
+            last--;
+        }
+        document.write(numberArray);
+    }
+
+    function s5() {
+        let numberArray = [];
+        let count = 0;
+        for (let i = 0; i < 5; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+        document.writeln("Các số vừa nhập: " +  numberArray + "</br>");
+
+        for (let  i = 0; i < numberArray.length; i++){
+            if (numberArray[i] < 0){
+                count++;
+            }
+        }
+        document.writeln("Có " + count + " số nguyên âm");
+    }
+
+    function s6() {
+        let numberArray = [];
+        for (let i = 0; i < 10; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+        // document.writeln("Các số vừa nhập: " +  numberArray + "</br>");
+        let text = "";
+        for (let i = 0; i < numberArray.length; i++){
+            if(numberArray[i] % 1 === 0){
+                 text += numberArray[i] + " là số nguyên </br>";
+            }
+            else {
+                text+= numberArray[i] + " không phải là số nguyên </br>";
+            }
+        }
+         document.getElementById("result").innerHTML = text;
+    }
+    
+    function s7() {
+        let numberArray = [];
+        for (let i = 0; i < 10; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+        alert("Các số vừa nhập: " +  numberArray);
+        let check = +prompt("Check number: ")
+        let index = -1;
+        for (let i = 0; i < numberArray.length; i++){
+            if (check === numberArray[i]){
+                index = i;
+            }
+        }
+        if (index > -1){
+            alert(check + " thuộc mảng ở vị trí " + index);
+        }
+        else {
+            alert(check + " Không thuộc mảng ")
+        }
+    }
+
+    //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+    function s8() {
+        let numberArray = [];
+        for (let i = 0; i < 3; i++){
+            let input = +prompt("Enter a number: ");
+            numberArray.push(input);
+        }
+        alert("Các số vừa nhập: " +  numberArray);
+        let max;
+        let down;
+        for (i = 0; i < numberArray.length; i++){
+            if (max < numberArray[i]){
+                max = numberArray[i]
+            }
+        }
+
+    }
+
+</script>
+</body>
+</html>

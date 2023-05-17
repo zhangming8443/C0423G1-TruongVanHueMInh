@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Từ điển</title>
+</head>
+<body>
+<form action="">
+    <p>Nhập từ
+        <input type="text" id="txtVE">
+        <input type="button" onclick="dictionary()" value="Dịch">
+    </p>
+    <div id="result"></div>
+</form>
+<script>
+    function dictionary() {
+        let arr_eng = ['dog', 'cat', 'mouse', 'blue', 'black'];
+        let arr_vie = ['chó', 'mèo', 'chuột', 'xanh', 'đen'];
+        let text = document.getElementById("txtVE").value;
+        let result = " ";
+        let eng = 0;
+        for (let i = 0; i<arr_eng.length; i++){
+            if (text === arr_eng[i]){
+                eng = i;
+                for (let j = 0; j<arr_vie.length; j++){
+                    if (eng = j){
+                        result = arr_vie[j];
+                    }
+                }
+            }
+        }
+        document.getElementById("result").innerHTML = result;
+    }
+</script>
+</body>
+</html>
