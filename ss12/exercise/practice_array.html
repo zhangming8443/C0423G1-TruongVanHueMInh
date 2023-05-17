@@ -14,6 +14,7 @@
 <div id="result"></div>
 <button onclick="s7()">Bài 7</button>
 <button onclick="s8()">Bài 8</button>
+<button onclick="s9()">Bài 9</button>
 <script>
     function s1() {
         let number = [];
@@ -151,18 +152,35 @@
     //Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử. Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
     function s8() {
         let numberArray = [];
-        for (let i = 0; i < 3; i++){
+        for (let i = 0; i < 10; i++){
             let input = +prompt("Enter a number: ");
             numberArray.push(input);
         }
-        alert("Các số vừa nhập: " +  numberArray);
-        let max;
-        let down;
-        for (i = 0; i < numberArray.length; i++){
-            if (max < numberArray[i]){
-                max = numberArray[i]
-            }
+        alert("Số bạn vừa nhập: " + numberArray);
+
+        const compareFn = (a, b) => (a > b ? -1 : 0);
+        numberArray.sort(compareFn);
+        alert("Sắp xếp theo thứ tự giảm dần : " + numberArray)
+    }
+
+    // Viết chương trình khởi tạo/nhập vào 2 mảng số nguyên gồm 10 phần tử, gọi là mảng a và b.
+    // Mảng c là một mảng được khai báo gồm 20 phần tử số nguyên. Chương trình sẽ lưu các
+    // phần tử được nối từ hai mảng b và a vào mảng c. Hiển thị mảng c.
+    function s9() {
+        let a = [];
+        for (let i = 0; i < 10; i++){
+            let input = +prompt("Enter a number for array one: ");
+            a.push(input);
         }
+        let b = [];
+        for (let i = 0; i < 10; i++){
+            let input = +prompt("Enter a number for array two: ");
+            b.push(input);
+        }
+        let c = a.concat(b); // noi mang a va mang b
+        console.log(a);
+        console.log(b);
+        console.log(c);
 
     }
 
