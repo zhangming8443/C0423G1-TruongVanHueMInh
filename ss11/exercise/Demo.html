@@ -6,16 +6,9 @@
 </head>
 <body>
 <script>
-    let numberArray = [];
-    for (let i = 0; i < 5; i++){
-        let input = +prompt("Enter a number: ");
-        numberArray.push(input);
-    }
-    alert("Số bạn vừa nhập: " + numberArray);
-
-    const compareFn = (a, b) => (a > b ? -1 : 0);
-    numberArray.sort(compareFn);
-    alert("Sắp xếp theo thứ tự giảm dần : " + numberArray)
+    let str = prompt("Enter the text: ");
+    let rep = str.replace(/-/g, "_");
+    document.writeln(rep)
 </script>
 </body>
 </html>

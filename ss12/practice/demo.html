@@ -5,39 +5,30 @@
     <title>Demo</title>
 </head>
 <body>
+<form action="">
+    <p>Nhập từ
+        <input type="text" id="txtVE">
+        <input type="button" onclick="dictionary()" value="Dịch">
+    </p>
+    <div id="result"></div>
+</form>
 <script>
-    //for in
-    // var person = {firstName: "Truong", lastName: "Minh", address: "Da Nang"};
-    // for (var p in person){
-    //     document.write(person[p]);
-    // }
-
-    // let points = [40, 100, 1, 5, 25, 10]
-    // points.sort(function(a, b) {
-    //     return a - b
-    // })
-    // document.write(points + "<br>");
-    //
-    // points.sort(function(a, b) {
-    //     return b - a
-    // })
-    // document.write(points);
-    const num=window.prompt();
-    const str = num.toString();
-    const result = [str[0]];
-
-    for(let x=1; x<str.length; x++)
-    {
-        if((str[x-1]%2 === 0)&&(str[x]%2 === 0))
-        {
-            result.push('-', str[x]);
-        }
-        else
-        {
-            result.push(str[x]);
+    let arr_eng = ['dog', 'cat', 'mouse', 'blue', 'black'];
+    let arr_vie = [chó', 'mèo', 'chuột', 'xanh', 'đen'];
+    let text = document.getElementById("txtVE").value;
+    let result = " ";
+    let eng = 0;
+    for (let i = 0; i<arr_eng.length; i++){
+        if (text === arr_eng[i]){
+            eng = i;
+            for (let j = 0; j<arr_vie.length; j++){
+                if (eng = j){
+                    result = arr_vie[j];
+                }
+            }
         }
     }
-    console.log(result.join(''));
+    document.getElementById("result").innerHTML = result;
 </script>
 
 </body>

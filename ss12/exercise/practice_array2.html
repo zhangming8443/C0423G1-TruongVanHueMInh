@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="s1()">Bài 1</button>
+<button onclick="s2()">Bài 2</button>
+<button onclick="s3()">Bài 3</button>
+<button onclick="s4()">Bài 4</button>
+<button onclick="s5()">Bài 5</button>
+<button onclick="s6()">Bài 6</button>
+<script>
+    function s1() {
+        let a = [
+            [1, 2, 1, 24],
+            [8,11,9,4],
+            [7,0,7,27],
+            [7,4,28,14],
+            [3,10,26,7]
+        ]
+        for (let i in a){
+            console.log("row " + i);
+            for (let j in a[i]){
+                console.log(" " + a[i][j])
+            }
+        }
+
+    }
+
+    function s2() {
+        let str = [];
+        for (let i = 0; i < 5; i++){
+            let input = prompt("Mời nhập: ");
+            str.push(input);
+        }
+        console.log(str);
+        str.reverse(); // dao nguoc cac phan tu trong mang str
+        console.log(str);
+    }
+
+    function s3() {
+        let str = [];
+
+        let n = +prompt("Nhập độ dài của mảng: ");
+        for (let i = 0; i < n; i++){
+            let input = prompt("Nhập phần tử vào trong mảng: ");
+            str.push(input);
+        }
+        document.writeln("Độ dài của mảng: " + n + "</br> Các phần tử trong mảng: " + str);
+        let element;
+        let count = 0;
+        for (let i = 0; i < str.length; i++ ){
+            if (str[i] * 0 === 0){
+                element = str[i];
+                count++;
+            }
+        }
+        document.writeln("</br> Có " + count + " ký tự số trong mảng")
+    }
+
+    //Viết một chương trình để đếm số từ trong một chuỗi
+    function s4() {
+        let input = prompt("Enter the text: ");
+        let arr = input.split(" ");
+        let count = 0;
+        for (let i = 0; i < arr.length; i++){
+            if (arr[i] !== ""){
+                count++;
+            }
+        }
+
+        console.log(arr);
+        console.log(count);
+        document.writeln("Chuỗi vừa nhập gồm có: " +  count + " từ");
+    }
+
+    // Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi có giống nhau hay không.
+    function s5() {
+        let strA = [];
+        let strB = [];
+        let n = +prompt("Enter the length number: ");
+        for (let i = 0; i < n; i++ ){
+            let input = prompt("Enter the string in the array A: ");
+            strA.push(input);
+        }
+
+        for (let i = 0; i < n; i++){
+            let input = prompt("Enter the string in the array B: ");
+            strB.push(input);
+        }
+        for (let i = 0; i < strA.length; i++){
+            if (strA[i] !== strB[i]){
+                console.log("Hai chuỗi khác nhau");
+            }
+            else {
+                console.log("Hai chuỗi giống nhau");
+            }
+
+        }
+    }
+
+    //Viết chương trình nhập vào một mảng ký tự, tìm tất cả các ký tự trong mảng là (-) và thay thế các ký tự này bởi ký tự ( _ )
+    function s6() {
+        let str = prompt("Enter the text: ");
+        let rep = str.replace(/-/g, "_");
+        document.writeln(rep);
+    }
+</script>
+
+</body>
+</html>
