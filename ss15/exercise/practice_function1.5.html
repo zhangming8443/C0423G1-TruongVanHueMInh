@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let strA = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+    let strB = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+    let inputName = prompt("Enter a star name: ");
+    let result =" ";
+    let text = 0;
+    function checkName(inputName) {
+        for ( let i = 0; i < strA.length; i++){
+            if (inputName === strA[i]){
+                text = i;
+                for (let j = 0; j < strB.length; j++){
+                    if (text === j){
+                        result = strB[i];
+                        return result
+                    }
+                }
+            }
+        }
+        return `Không có ngôi sao này !`
+    }
+    document.writeln(checkName(inputName));
+</script>
+</body>
+</html>

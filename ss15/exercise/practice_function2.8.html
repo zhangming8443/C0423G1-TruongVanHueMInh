@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt("Nhập độ dài mảng: ");
+    let arr =[];
+    for (let i = 0; i < n; i++){
+        let input = +prompt("Nhập phần từ cho mảng vào vị trí " + i)
+        arr.push(input);
+    }
+    console.log(arr);
+    //cach 1
+    let first = 0;
+    let last = arr.length - 1;
+    function reverseArr(arr) {
+        for (let i = 0; i < arr.length; i++){
+            if (first<last){
+                let temp = arr[first];
+                arr[first] = arr[last];
+                arr[last] = temp;
+                first++;
+                last--;
+            }
+        }
+        return arr;
+    }
+    document.writeln(reverseArr(arr))
+
+    //cach 2
+    // arr.reverse();
+    // console.log(arr)
+
+</script>
+
+</body>
+</html>

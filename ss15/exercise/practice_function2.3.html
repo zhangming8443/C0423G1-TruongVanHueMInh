@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let gt = 1;
+    let number = +prompt("Enter a number: ")
+    function factorial(number) {
+        for (let i = 1; i <= number; i++){
+            gt = gt * i
+        }
+        return `${number}! = ${gt}`;
+    }
+    document.writeln(factorial(number));
+</script>
+</body>
+</html>

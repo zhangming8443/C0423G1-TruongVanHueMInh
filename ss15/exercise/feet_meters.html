@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let inputFeet = +prompt("Enter a feet number: ");
+
+    let inputMeter = +prompt("Enter a meter number: ");
+
+    function feetToMeter(inputFeet) {
+        meter = 0.305 * inputFeet;
+        return meter;
+    }
+
+    function meterToFeet(inputMeter) {
+        feet = 3.279 * inputMeter;
+        return feet;
+    }
+    feetToMeter(inputFeet);
+    meterToFeet(inputMeter);
+    document.writeln(`${inputFeet} feet = ${meter} meter <br/>`);
+    document.writeln(`${inputMeter} meter = ${feet} feet`);
+</script>
+
+</body>
+</html>

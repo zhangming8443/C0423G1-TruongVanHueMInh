@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = +prompt("Enter a A number: ");
+    let b = +prompt("Enter a B number: ");
+    function checkAB(a,b) {
+        if (a > b){
+            alert("a > b");
+            return `Không có giá trị trả về !`
+        }
+        else {
+            return `Tổng a và b: ${a + b}`;
+        }
+
+    }
+    document.writeln(checkAB(a,b));
+</script>
+</body>
+</html>

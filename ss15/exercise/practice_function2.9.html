@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let str = prompt("Enter the text: ");
+    let text = prompt("Enter the text to check: ");
+    let arr = str.split("");
+    let count = 0;
+    console.log(arr)
+    function checkText(text) {
+        for (let i = 0 ; i < arr.length; i++){
+            if (text === arr[i]){
+                count++;
+            }
+        }
+        return `Có ${count} kí tự "${text}" trong mảng`;
+    }
+
+    document.writeln(checkText(text))
+</script>
+
+</body>
+</html>

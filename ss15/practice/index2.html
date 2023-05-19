@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // Hàm tính giai thừa
+    // 5! = 5 * 4 * 3 * 2 * 1
+    function giaiThua(number) { // Cục bộ
+        let gt = 1; // Cục bộ
+
+        for (let i = 1; i <= number; i++) {
+            gt = gt * i;
+        }
+        document.write(`${number}! = ${gt}`)
+    }
+
+    function giaiThua2(number) { // Cục bộ
+        let gt = 1; // Cục bộ
+
+        for (let i = 1; i <= number; i++) {
+            gt = gt * i;
+        }
+        return gt;
+    }
+
+    giaiThua(5);
+
+    let n = 10; // Toàn cục
+    let gt = giaiThua2(n);
+    document.write(`<br/>${n}! = ${gt}`)
+
+    // Tính tổng giai thừa có 2 số a, b;
+    let a = 2, b = 3;
+    let total = giaiThua2(a) + giaiThua2(b);
+    document.write(`<br/>${a}! + ${b}! = ${total}`)
+
+    // Tính tổng giai thừa các phần tử ở trong mảng
+    let arr = [1, 2, 3];
+
+    let sum = 0; // Toàn cục
+    for(let i = 0; i < arr.length; i++) {
+        sum += giaiThua2(arr[i]);
+    }
+
+    document.write("<br/>Tổng: " + sum)
+</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let d = +prompt("Mời nhập đường kính: ")
+    let s,c;
+
+    function perimeterCircle(d) {
+        c = d * 3.14;
+        return `Chu vi hình tròn là: ${c} <br/>`;
+    }
+
+    function areaCircle(d) {
+        s = (3.14 * d * d)/4
+        return `Diện tích hình tròn là: ${s}`;
+    }
+    document.writeln(perimeterCircle(d));
+    document.writeln(areaCircle(d));
+</script>
+
+</body>
+</html>

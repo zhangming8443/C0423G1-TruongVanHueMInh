@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Enter a number: ")
+    let count = 0;
+    function isPrime(number) {
+        for (let i = 1; i <= number; i++){
+            if (number % i === 0){
+                count++;
+            }
+        }
+        if (count === 2){
+            alert("This is prime number !");
+        }
+        else {
+            alert("This isn't prime number !");
+        }
+    }
+    isPrime(number);
+
+</script>
+</body>
+</html>
