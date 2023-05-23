@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<script>
+
+    class Mobile {
+        constructor(id, name, pin, entering, inbox, sent) {
+
+            this._id = id;
+            this._name = name;
+            this._pin = pin;
+            this._entering = entering;
+            this._inbox = inbox;
+            this._sent = sent;
+        }
+
+        get id() {
+            return this._id;
+        }
+
+        set id(value) {
+            this._id = value;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get pin() {
+            return this._pin;
+        }
+
+        set pin(value) {
+            this._pin = value;
+        }
+
+        get entering() {
+            return this._entering;
+        }
+
+        set entering(value) {
+            this._entering = value;
+        }
+
+        get inbox() {
+            return this._inbox;
+        }
+
+        set inbox(value) {
+            this._inbox = value;
+        }
+
+        get sent() {
+            return this._sent;
+        }
+
+        set sent(value) {
+            this._sent = value;
+        }
+
+    }
+
+    let mobile1 = new Mobile()
+
+</script>
+</body>
+</html>

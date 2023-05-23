@@ -2,26 +2,93 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
-
+    <title>Title</title>
 </head>
 <body>
+<input type="text" id="idIpt" placeholder="Enter the ID">
+<input type="text" id="nameIpt" placeholder="Enter the name product">
+<input type="number" id="priceIpt" placeholder="Enter the price product">
+<input type="button" id="btnAdd" onclick="addNewProduct()" value="Add">
+<hr>
+<div id="tblProduct"></div>
 <script>
-    let numberArray = [];
-    for (let i = 1; i <= 3; i++){
-        let input = +prompt("Enter a number: ");
-        numberArray.push(input);
-    }
-    console.log(numberArray);
+    class Product {
+        constructor(id, name, price) {
+            this._id = id;
+            this._name = name;
+            this._price = price;
+        }
 
+        get id() {
+            return this._id;
+        }
 
-    let min = numberArray[0];
-    for (let i = 0; i<numberArray.length; i++){
-        if (min > numberArray[i]){
-            min = numberArray[i];
+        set id(value) {
+            this._id = value;
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(value) {
+            this._name = value;
+        }
+
+        get price() {
+            return this._price;
+        }
+
+        set price(value) {
+            this._price = value;
         }
     }
-    document.writeln("Giá trị nhỏ nhất: " + min) ;
+
+    let product1 = new Product(1, "Iphone", 500);
+    let product2 = new Product(2, "Samsung", 600);
+    let product3 = new Product(3, "Sony", 700);
+    let productList = [];
+    productList.push(product1, product2, product3);
+    displayProduct(productList);
+
+    function displayProduct(list) {
+        let tableStr = `<table border="1" style="border-collapse: collapse"> `;
+        tableStr += `<tr>
+                        <th>STT</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Delete</th>
+                     </tr>`
+        for (let i = 0; i < list.length; i++) {
+            tableStr += `<tr>`;
+            tableStr += `<td>${i + 1}</td>`
+            tableStr += `<td>${list[i].name}</td>`
+            tableStr += `<td>${list[i].price}</td>`
+            tableStr += `<td onclick='deleteProduct(${i})'><button>Delete</button></td>`
+            tableStr += `</tr>`;
+        }
+        tableStr += `</table>`;
+        document.getElementById("tblProduct").innerHTML = tableStr;
+    }
+
+    function addNewProduct() {
+        let id = document.getElementById("idIpt").value;
+        let name = document.getElementById("nameIpt").value;
+        let price = document.getElementById("priceIpt").value;
+        let newProduct = new Product(id, name, price);
+        productList.push(newProduct);
+        displayProduct(productList)
+        document.getElementById("idIpt").value = " ";
+        document.getElementById("nameIpt").value = " ";
+        document.getElementById("priceIpt").value = " ";
+    }
+
+    function deleteProduct(indexProduct) {
+        alert(`index: ${indexProduct}`);
+        productList.splice(indexProduct,1);
+        displayProduct(productList);
+
+    }
 </script>
 
 </body>

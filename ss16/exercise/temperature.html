@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Temperature {
+        constructor(celsius) {
+
+            this._celsius = celsius;
+        }
+
+        get celsius() {
+            return this._celsius;
+        }
+
+        set celsius(value) {
+            this._celsius = value;
+        }
+
+
+        getFahrenheit() {
+            return (celsius * 1.8) + 32;
+        }
+
+        getKelvin() {
+            return celsius + 273.15;
+        }
+
+        run() {
+            document.writeln(`<p>Fahrenheit: ${this.getFahrenheit()}</p>
+                <p>Kelvin: ${this.getKelvin()} </p>   `);
+        }
+    }
+
+    let celsius;
+    do {
+        celsius = +prompt("Enter the Celsius");
+    }
+    while (celsius < -273);
+    let t1 = new Temperature(celsius);
+    t1.run();
+
+</script>
+</body>
+</html>

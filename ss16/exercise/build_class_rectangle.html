@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class Rectangle {
+        constructor(length, width) {
+            this._length = length;
+            this._width = width;
+        }
+
+        get length() {
+            return this._length;
+        }
+
+        set length(value) {
+            this._length = value;
+        }
+
+        get width() {
+            return this._width;
+        }
+
+        set width(value) {
+            this._width = value;
+        }
+
+        getArea() {
+            return length * width;
+        }
+
+        getPerimeter() {
+            return (length + width) * 2;
+        }
+
+        run() {
+            document.writeln(`<p>Diện tích: ${this.getArea()}</p>
+        <p>Chu vi: ${this.getPerimeter()}</p>  `)
+        }
+    }
+
+    let length = +prompt("Enter the length: ");
+    let width = +prompt("Enter the width: ");
+    let rectangle1 = new Rectangle(length, width);
+    rectangle1.run();
+
+
+</script>
+</body>
+</html>

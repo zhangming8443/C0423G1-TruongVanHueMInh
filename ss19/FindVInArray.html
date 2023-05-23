@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 1. Khởi tạo hoặc nhập mảng số nguyên 10 phần tử
+    // 2. Nhập hoặc tạo số nguyên V
+    // 3. Kiểm tra V có trong mảng không?
+
+    let arrNum = [1,2,3,4,5,6,7,8,9,0];
+    let v = 99;
+    let flag = false; // Nếu flag là false tương đương V không có trong mảng.
+    // Cách 1:
+    for (let i = 0; i < arrNum.length ; i++) {
+        if(v === arrNum[i]) {
+            document.writeln("V trong mảng.");
+            flag = true; // Đổi màu cờ vì đã tìm thấy V
+            break;
+        }
+    }
+    if(flag === false) {
+        document.writeln("V không trong mảng.");
+    }
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [1,2,3,4,5,6,7,8,9,10];
+    let b = [5,5,5,5,5,5,5,5,5,5];
+    let c = new Array(20);
+    // Cách 1
+    // for (let i = 0; i < c.length; i++) {
+    //     if(i < 10) {
+    //         c[i] = a[i];
+    //     }
+    //     // thêm phần tử b vào c
+    //     if(i >= 10) {
+    //         c[i] = b[i - 10];
+    //     }
+    // }
+    // Cách 2
+    c = a.concat(b);
+    console.log(c);
+</script>
+</body>
+</html>

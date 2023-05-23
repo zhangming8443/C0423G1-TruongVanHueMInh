@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tham Trị & Tham chiếu</title>
+</head>
+<body>
+<script>
+    let a = 2;
+    b = a;
+    b = 10;
+    document.write(a);
+
+    // let arr = [10, 20, 30];
+    // let brr = arr;
+    // brr[2] = 100;
+    // brr = []
+    // brr[0] = 100;
+    // document.write('<br/>' + arr);
+
+
+    function changeData(n) {
+        n = 100;
+    }
+    let x = 10; // Kiểu dữ liệu nguyên thủy
+    changeData(x);
+    document.write('<br/>' + x);
+
+    function changeData2(arr) {
+        arr = [];
+        arr[0] = 100;
+    }
+    let brr = [10, 20]; // Kiểu dữ liệu tham chiếu (đối tượng)
+    changeData2(brr);
+    document.write('<br/>' + brr);
+
+    document.write(new Date().toDateString())
+</script>
+</body>
+</html>
