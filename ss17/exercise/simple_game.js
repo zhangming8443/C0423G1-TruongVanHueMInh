@@ -3,7 +3,6 @@ function Hero(image, top, left, size, speed){
     this.top = top;
     this.left = left;
     this.size = size;
-    this.speed = speed;
 
     this.getHeroElement = function(){
         return '<img width="'+ this.size + '"' +
@@ -13,31 +12,35 @@ function Hero(image, top, left, size, speed){
     }
 
     this.moveRight = function(){
-        this.left += 100;
+        this.left += 20;
         console.log('ok: ' + this.left);
     }
     this.moveLeft = function () {
-        this.left += -50;
+        this.left -= 20;
         console.log('ok ' + this.left);
     }
-    this.moveTop = function () {
-
-    }
-    this.speed = function () {
-
-    }
-
 }
 
 var hero = new Hero('amongus.png', 20, 30, 200);
+let flag = true;
 
 function start(){
-    if(hero.left < window.innerWidth - hero.size){
+    if(hero.left < window.innerWidth - hero.size && flag){
         hero.moveRight();
-        hero.moveLeft();
+    }
+    else {
+        flag = false;
+        moveLeft();
     }
     document.getElementById('game').innerHTML = hero.getHeroElement();
-    setTimeout(start, 500)
+    setTimeout(start, 1)
+}
+
+function moveLeft() {
+        hero.moveLeft();
+        if (hero.left <= hero.size){
+            flag = true;
+        }
 }
 
 start();

@@ -3,75 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
-
-
-
+<table class="table table-dark table-striped" border="1">
+    <tr>
+        <th>Iphone(222)</th>
+        <th>Samsung(111)</th>
+    </tr>
+    <tr>
+        <td><textarea id="222" cols="30" rows="10"></textarea></td>
+        <td><textarea id="111" cols="30" rows="10"></textarea></td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" onclick="iphone.composeMessage()" class="btn btn-success">Soạn tin nhắn</button>
+        </td>
+        <td>
+            <button type="button" onclick="samsung.composeMessage()" class="btn btn-danger">Soạn tin nhắn</button>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button type="button" onclick="iphone.viewMessage()" class="btn btn-success">Xem tin nhắn</button>
+        </td>
+        <td>
+            <button type="button" onclick="samsung.viewMessage()" class="btn btn-danger">Xem tin nhắn</button>
+        </td>
+    </tr>
+</table>
 <script>
-
     class Mobile {
-        constructor(id, name, pin, entering, inbox, sent) {
-
-            this._id = id;
-            this._name = name;
-            this._pin = pin;
-            this._entering = entering;
-            this._inbox = inbox;
-            this._sent = sent;
+        constructor(phoneNumber) {
+            this.battery = 100;
+            this.messageComposing;
+            this.inbox = [];
+            this.sentMailboxes = [];
+            this.condition = true;
+            this.phoneNumber = phoneNumber;
         }
 
-        get id() {
-            return this._id;
+        turnOnPhone() {
+            alert('Turn on !');
+            this.condition = true;
         }
 
-        set id(value) {
-            this._id = value;
+        turnOffPhone() {
+            alert('Turn Off !');
+            this.condition = false;
         }
 
-        get name() {
-            return this._name;
+        batteryCharging() {
+            this.battery = 100;
+            alert(`Full battery !`);
         }
 
-        set name(value) {
-            this._name = value;
+        composeMessage() {
+            this.messageComposing = prompt('Type a message: ');
+            let deliveryConfirmation = confirm(`Do you want to send ?`);
+            if (deliveryConfirmation) {
+                let recipientPhoneNumber = +prompt("Enter the recipient phone number: ");
+                this.sendMessage(this.messageComposing, recipientPhoneNumber);
+            }
         }
 
-        get pin() {
-            return this._pin;
+        sendMessage(message, recipientPhoneNumber) {
+            let phoneNumberLocation = repoPhoneNumber.indexOf(recipientPhoneNumber);
+            if (phoneNumberLocation !== -1) {
+                alert(`Sent ${recipientPhoneNumber}`);
+                let phoneToPickUp = repoPhone[phoneNumberLocation];
+                phoneToPickUp.receiveMessage(`${message} From: ${this.phoneNumber}`);
+            } else {
+                alert(`Can't find this phone number !`);
+            }
         }
 
-        set pin(value) {
-            this._pin = value;
+        receiveMessage(message) {
+            this.inbox.push(message)
         }
 
-        get entering() {
-            return this._entering;
+        viewMessage() {
+            let allMessage = "";
+            for (let i = 0; i < this.inbox.length; i++){
+                allMessage += `${this.inbox[i]} \n`;
+            }
+            let idScreen = "" + this.phoneNumber;
+            document.getElementById(idScreen).value = allMessage;
         }
-
-        set entering(value) {
-            this._entering = value;
-        }
-
-        get inbox() {
-            return this._inbox;
-        }
-
-        set inbox(value) {
-            this._inbox = value;
-        }
-
-        get sent() {
-            return this._sent;
-        }
-
-        set sent(value) {
-            this._sent = value;
-        }
-
     }
 
-    let mobile1 = new Mobile()
+    let repoPhoneNumber = [];
+    let repoPhone = [];
+
+    let iphone = new Mobile(222);
+    let samsung = new Mobile(111);
+    repoPhone.push(iphone, samsung);
+    repoPhoneNumber.push(iphone.phoneNumber, samsung.phoneNumber);
+
 
 </script>
 </body>

@@ -5,91 +5,52 @@
     <title>Title</title>
 </head>
 <body>
-<input type="text" id="idIpt" placeholder="Enter the ID">
-<input type="text" id="nameIpt" placeholder="Enter the name product">
-<input type="number" id="priceIpt" placeholder="Enter the price product">
-<input type="button" id="btnAdd" onclick="addNewProduct()" value="Add">
-<hr>
-<div id="tblProduct"></div>
+<div id="game"></div>
 <script>
-    class Product {
-        constructor(id, name, price) {
-            this._id = id;
-            this._name = name;
-            this._price = price;
+    function Hero(image, top, left, size) {
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+
+        this.getHero = function () {
+            return '<img width="' + this.size + '"' +
+                ' height="' + this.size + '"' +
+                ' src="' + this.image + '"' +
+                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
         }
 
-        get id() {
-            return this._id;
+        this.moveRight = function () {
+            this.left += 20;
+            console.log('ok: ' + this.left);
         }
-
-        set id(value) {
-            this._id = value;
-        }
-
-        get name() {
-            return this._name;
-        }
-
-        set name(value) {
-            this._name = value;
-        }
-
-        get price() {
-            return this._price;
-        }
-
-        set price(value) {
-            this._price = value;
+        this.moveLeft = function () {
+            this.left -= 20;
+            console.log('ok: ' + this.left);
         }
     }
 
-    let product1 = new Product(1, "Iphone", 500);
-    let product2 = new Product(2, "Samsung", 600);
-    let product3 = new Product(3, "Sony", 700);
-    let productList = [];
-    productList.push(product1, product2, product3);
-    displayProduct(productList);
-
-    function displayProduct(list) {
-        let tableStr = `<table border="1" style="border-collapse: collapse"> `;
-        tableStr += `<tr>
-                        <th>STT</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Delete</th>
-                     </tr>`
-        for (let i = 0; i < list.length; i++) {
-            tableStr += `<tr>`;
-            tableStr += `<td>${i + 1}</td>`
-            tableStr += `<td>${list[i].name}</td>`
-            tableStr += `<td>${list[i].price}</td>`
-            tableStr += `<td onclick='deleteProduct(${i})'><button>Delete</button></td>`
-            tableStr += `</tr>`;
+    var hero = new Hero('https://img.freepik.com/free-vector/cute-boy-super-hero-flying-cartoon-vector-icon-illustration-people-holiday-icon-concept-isolated_138676-5451.jpg', 20, 30, 200);
+    let flag = true; // can move right
+    function start() {
+        if (hero.left < window.innerWidth - hero.size && flag) {
+            hero.moveRight();
+        } else {
+            flag = false;
+            moveLeft();
         }
-        tableStr += `</table>`;
-        document.getElementById("tblProduct").innerHTML = tableStr;
+        document.getElementById('game').innerHTML = hero.getHero();
+        setTimeout(start, 50)
     }
 
-    function addNewProduct() {
-        let id = document.getElementById("idIpt").value;
-        let name = document.getElementById("nameIpt").value;
-        let price = document.getElementById("priceIpt").value;
-        let newProduct = new Product(id, name, price);
-        productList.push(newProduct);
-        displayProduct(productList)
-        document.getElementById("idIpt").value = " ";
-        document.getElementById("nameIpt").value = " ";
-        document.getElementById("priceIpt").value = " ";
+    function moveLeft() {
+        hero.moveLeft();
+        if (hero.left <= hero.size) {
+            flag = true;
+        }
     }
 
-    function deleteProduct(indexProduct) {
-        alert(`index: ${indexProduct}`);
-        productList.splice(indexProduct,1);
-        displayProduct(productList);
-
-    }
+    start();
 </script>
-
 </body>
 </html>
