@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let bac1 = 5/100;
+    let bac2 = 10/100;
+    let bac3 = 20/100;
+    let tienLuong = +prompt("Nhập tiền lương");
+    let thuNhap;
+    if (tienLuong >= 15000000){
+        thuNhap = tienLuong- tienLuong * bac3;
+    }
+    else if (tienLuong >= 7000000){
+        thuNhap = tienLuong -  tienLuong * bac2;
+    }
+    else {
+        thuNhap = tienLuong - tienLuong * bac1;
+    }
+    document.write("Thu nhập của bạn là: " + thuNhap);
+
+</script>
+
+</body>
+</html>

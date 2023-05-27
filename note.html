@@ -5,52 +5,86 @@
     <title>Title</title>
 </head>
 <body>
-<div id="game"></div>
+<h2>Add New Product</h2>
+<input type="text" id="nameIpt" placeholder="Enter the name product">
+<br>
+<input type="number" id="priceIpt" placeholder="Enter the price product">
+<button onclick="addPrd()">Add</button>
+<div id="btnEdit"></div>
+<hr>
+<div id="tblProduct"></div>
 <script>
-    function Hero(image, top, left, size) {
-        this.image = image;
-        this.top = top;
-        this.left = left;
-        this.size = size;
-
-        this.getHero = function () {
-            return '<img width="' + this.size + '"' +
-                ' height="' + this.size + '"' +
-                ' src="' + this.image + '"' +
-                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
-        }
-
-        this.moveRight = function () {
-            this.left += 20;
-            console.log('ok: ' + this.left);
-        }
-        this.moveLeft = function () {
-            this.left -= 20;
-            console.log('ok: ' + this.left);
+    class Product {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price
         }
     }
 
-    var hero = new Hero('https://img.freepik.com/free-vector/cute-boy-super-hero-flying-cartoon-vector-icon-illustration-people-holiday-icon-concept-isolated_138676-5451.jpg', 20, 30, 200);
-    let flag = true; // can move right
-    function start() {
-        if (hero.left < window.innerWidth - hero.size && flag) {
-            hero.moveRight();
-        } else {
-            flag = false;
-            moveLeft();
+    let prd1 = new Product("nokia", 111);
+    let prd2 = new Product('sony', 222);
+    let prd3 = new Product("iphone", 333);
+    let prdList = [];
+    prdList.push(prd1, prd2, prd3);
+    displayPrd(prdList)
+
+    function displayPrd(list) {
+        let tblStr = `<table border="1" style="border-collapse: collapse">`;
+        tblStr += `<tr>
+                     <th></th>
+                     <th>Name</th>
+                     <th>Price</th>
+                     <th colspan="2">Function</th>
+                   </tr>`;
+        for (let i = 0; i < list.length; i++) {
+            tblStr += `<tr>`;
+            tblStr += `<td>${i + 1}</td>`;
+            tblStr += `<td>${prdList[i].name}</td>`;
+            tblStr += `<td>${prdList[i].price}</td>`;
+            tblStr += `<td><button onclick="editPrd(${i})">Edit</button></td>`;
+            tblStr += `<td><button onclick="dltPrd(${i})">Delete</button></td>`;
+            tblStr += `</tr>`;
         }
-        document.getElementById('game').innerHTML = hero.getHero();
-        setTimeout(start, 50)
+        tblStr += `</table>`
+        document.getElementById("tblProduct").innerHTML = tblStr;
     }
 
-    function moveLeft() {
-        hero.moveLeft();
-        if (hero.left <= hero.size) {
-            flag = true;
+    function addPrd() {
+        let nameAdd = document.getElementById('nameIpt').value;
+        let priceAdd = document.getElementById('priceIpt').value;
+        let addNewPrd = new Product(nameAdd, priceAdd);
+        prdList.push(addNewPrd);
+        displayPrd(prdList);
+        document.getElementById('nameIpt').value = ``;
+        document.getElementById('priceIpt').value = ``;
+
+    }
+
+    function dltPrd(i) {
+        let n = confirm(`do u want to delete ${prdList[i].name}`);
+        if (n === true) {
+            prdList.splice(i, 1);
+            displayPrd(prdList);
         }
     }
 
-    start();
+    function editPrd(i) {
+        document.getElementById('nameIpt').value = prdList[i].name;
+        document.getElementById('priceIpt').value = prdList[i].price;
+        let text = `<button onclick="savePrd(${i})">Save</button>`
+        document.getElementById(`btnEdit`).innerHTML = text;
+    }
+
+    function savePrd(i) {
+        let nameEdit = document.getElementById('nameIpt').value;
+        let priceEdit = document.getElementById('priceIpt').value;
+        prdList[i].name = nameEdit;
+        prdList[i].price = priceEdit;
+        displayPrd(prdList);
+        document.getElementById('nameIpt').value = "";
+        document.getElementById('priceIpt').value = "";
+        document.getElementById('btnEdit').innerHTML = "";
+    }
 </script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [];
+    let n = +prompt("Nhập độ dài mảng a: ");
+    for (let i = 0; i < n; i++){
+        let input = +prompt("Nhập phần tử cho mảng a: ");
+        a.push(input);
+    }
+    let b = [];
+    document.writeln(a);
+
+    let x = 0;
+    function prefixSums(a) {
+        for (let i = 0; i < a.length; i++){
+            x += a[i];
+            b.push(x);
+        }
+        document.writeln(b);
+    }
+    prefixSums(a);
+</script>
+</body>
+</html>

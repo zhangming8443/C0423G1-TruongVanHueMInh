@@ -9,25 +9,95 @@
 </head>
 <body>
 <h2>Add New Product</h2>
-<div class="input-group mb-3">
-    <input id="nameproduct" type="text" class="form-control" placeholder="New product">
-</div>
-<button type="button" class="btn btn-outline-dark" onclick="addProduct()">Add</button>
-<table class="table table-dark table-striped">
-    <thead>
-    <tr>
-        <th scope="col">Product Name</th>
-        <th scope="col">Edit</th>
-        <th scope="col">Delete</th>
-    </tr>
-    </thead>
-    <tbody id="content">
+<input type="text" id="namePrd" placeholder="Type a name product">
+<br>
+<input type="number" id="pricePrd" placeholder="Enter the price product">
+<br>
+<input type="button" onclick="addNewProduct()" value="Add">
+<div id="typePrd"></div>
 
-    </tbody>
-</table>
+<hr>
+<div id="tblPrd"></div>
+<script>
+    class ProductManagement {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price;
+        }
+    }
 
-<script src="product_management.js">
+    let product1 = new ProductManagement("Iphone", 100);
+    let product2 = new ProductManagement("Samsung", 200);
+    let product3 = new ProductManagement("Sony", 300);
+    let product4 = new ProductManagement("Nokia", 400);
+    let productList = [];
+    productList.push(product1, product2, product3, product4);
 
+    displayProduct(productList);
+
+    function displayProduct(list) {
+        let tableStr = `<table class="table" border="2" style="border-collapse: collapse">`;
+
+        tableStr += `<tr>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th style="text-align: center">Function</th>
+                         </tr>`;
+
+        for (let i = 0; i < list.length; i++) {
+            tableStr += `<tr>`;
+            tableStr += `<td>${i + 1}</td>`;
+            tableStr += `<td>${list[i].name}</td>`;
+            tableStr += `<td>${list[i].price}</td>`;
+            tableStr += `<td><button type="button" onclick="editProduct(${i})" class="btn btn-primary">Edit</button></td>`;
+            tableStr += `<td><button type="button" onclick='deleteProduct(${i})' class="btn btn-danger">Delete</button></td>`;
+            tableStr += `</tr>`;
+        }
+
+        tableStr += `</table>`;
+        document.getElementById('tblPrd').innerHTML = tableStr;
+    }
+
+    function addNewProduct() {
+        let name = document.getElementById(`namePrd`).value;
+        let price = document.getElementById(`pricePrd`).value;
+        let newProduct = new ProductManagement(name, price);
+        productList.push(newProduct);
+        displayProduct(productList);
+        document.getElementById(`namePrd`).value = " ";
+        document.getElementById(`pricePrd`).value = " ";
+    }
+
+    function deleteProduct(index) {
+        let n = confirm(`Do you want to delete ${productList[index].name} ?`)
+        if (n === true){
+            productList.splice(index, 1);
+            displayProduct(productList);
+        }
+    }
+
+    //b1 truyen du lieu o input
+    //them 1 nut de luu du lieu
+    // lay dl moi de len dl cu
+    //in lai
+    function editProduct(i) {
+        document.getElementById('namePrd').value = productList[i].name;
+        document.getElementById('pricePrd').value = productList[i].price;
+        let text = `<button class="btn btn-secondary" onclick="saveProduct(${i})">Save</button>`
+        document.getElementById(`typePrd`).innerHTML = text;
+    }
+
+    function saveProduct(i) {
+        let nameEdit = document.getElementById('namePrd').value;
+        let priceEdit = document.getElementById('pricePrd').value;
+        productList[i].name = nameEdit;
+        productList[i].price = priceEdit
+        displayProduct(productList);
+        document.getElementById(`namePrd`).value = "";
+        document.getElementById(`pricePrd`).value = "";
+        document.getElementById(`typePrd`).innerHTML = "";
+    }
 </script>
 </body>
 </html>
