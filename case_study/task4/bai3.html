@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input1 = prompt("Enter the text1");
+    let arr1 = input1.split("");
+    document.write(`arr1 = ${arr1} <br/>`);
+    let input2 = prompt("Enter the text2");
+    let arr2 = input2.split("");
+    document.write(`arr2 = ${arr2} <br/>`);
+
+
+    function commonCharacterCount(arr1,arr2) {
+        let arrCheck = [];
+        for (let i = 0; i < arr1.length; i++) {
+            for (let j = 0; j < arr2.length; j++) {
+                if (arr1[i] === arr2[j]) {
+                    arrCheck.push(arr1[i]);
+                    arr2.splice(arr2[j],1);
+                    break;
+                }
+            }
+        }
+        document.write(`Có ${arrCheck.length} ký tự giống nhau: ${arrCheck}`);
+    }
+
+    commonCharacterCount(arr1,arr2);
+
+</script>
+
+</body>
+</html>

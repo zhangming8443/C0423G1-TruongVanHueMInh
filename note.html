@@ -6,84 +6,70 @@
 </head>
 <body>
 <h2>Add New Product</h2>
-<input type="text" id="nameIpt" placeholder="Enter the name product">
-<br>
-<input type="number" id="priceIpt" placeholder="Enter the price product">
-<button onclick="addPrd()">Add</button>
-<div id="btnEdit"></div>
-<hr>
-<div id="tblProduct"></div>
+<input type="text" id="txtSanPham">
+<input type="button" onclick="addSanPham()" value="Add">
+<div id="saved"></div>
+<h2>Display All Product</h2>
+<div id="tableSp"></div>
 <script>
-    class Product {
-        constructor(name, price) {
+    class sanPham {
+        constructor(name) {
             this.name = name;
-            this.price = price
         }
     }
 
-    let prd1 = new Product("nokia", 111);
-    let prd2 = new Product('sony', 222);
-    let prd3 = new Product("iphone", 333);
-    let prdList = [];
-    prdList.push(prd1, prd2, prd3);
-    displayPrd(prdList)
+    let sanPham1 = new sanPham("Sony Xperia");
+    let sanPham2 = new sanPham("Samsung Galaxy");
+    let sanPham3 = new sanPham("Nokia 6");
+    let listSanPham = [];
+    listSanPham.push(sanPham1, sanPham2, sanPham3);
+    displaySanPham(listSanPham);
 
-    function displayPrd(list) {
-        let tblStr = `<table border="1" style="border-collapse: collapse">`;
-        tblStr += `<tr>
-                     <th></th>
-                     <th>Name</th>
-                     <th>Price</th>
-                     <th colspan="2">Function</th>
-                   </tr>`;
+    function displaySanPham(list) {
+        let tableStr = `<table border="1" style="border-collapse: collapse">`;
+        tableStr += `<tr>
+                        <th>Product Name</th>
+                    </tr>`;
         for (let i = 0; i < list.length; i++) {
-            tblStr += `<tr>`;
-            tblStr += `<td>${i + 1}</td>`;
-            tblStr += `<td>${prdList[i].name}</td>`;
-            tblStr += `<td>${prdList[i].price}</td>`;
-            tblStr += `<td><button onclick="editPrd(${i})">Edit</button></td>`;
-            tblStr += `<td><button onclick="dltPrd(${i})">Delete</button></td>`;
-            tblStr += `</tr>`;
+            tableStr += `<tr>`;
+            tableStr += `<td>${list[i].name}</td>`
+            tableStr += `<td><button onclick="editSanPham(${i})">Edit</button></td>`
+            tableStr += `<td><button onclick="deleteSanPham(${i})">Delete</button></td>`
+            tableStr += `</tr>`;
+
         }
-        tblStr += `</table>`
-        document.getElementById("tblProduct").innerHTML = tblStr;
+        tableStr += `</table>`
+        document.getElementById("tableSp").innerHTML = tableStr;
     }
 
-    function addPrd() {
-        let nameAdd = document.getElementById('nameIpt').value;
-        let priceAdd = document.getElementById('priceIpt').value;
-        let addNewPrd = new Product(nameAdd, priceAdd);
-        prdList.push(addNewPrd);
-        displayPrd(prdList);
-        document.getElementById('nameIpt').value = ``;
-        document.getElementById('priceIpt').value = ``;
+    function addSanPham() {
+        let nameAdd = document.getElementById("txtSanPham").value;
+        let newSanPham = new sanPham(nameAdd);
+        listSanPham.push(newSanPham);
+        displaySanPham(listSanPham);
+        document.getElementById("txtSanPham").value = "";
+    }
+
+    function deleteSanPham(i) {
+        listSanPham.splice(i,1);
+        displaySanPham(listSanPham);
 
     }
 
-    function dltPrd(i) {
-        let n = confirm(`do u want to delete ${prdList[i].name}`);
-        if (n === true) {
-            prdList.splice(i, 1);
-            displayPrd(prdList);
-        }
+    function editSanPham(i) {
+        document.getElementById("txtSanPham").value = listSanPham[i].name;
+        let text = `<button onclick="saveSanPham(${i})">Save</button>`;
+        document.getElementById("saved").innerHTML = text;
     }
 
-    function editPrd(i) {
-        document.getElementById('nameIpt').value = prdList[i].name;
-        document.getElementById('priceIpt').value = prdList[i].price;
-        let text = `<button onclick="savePrd(${i})">Save</button>`
-        document.getElementById(`btnEdit`).innerHTML = text;
-    }
+    function saveSanPham(i) {
+        let nameEdit = document.getElementById("txtSanPham").value;
+        listSanPham[i].name = nameEdit;
+        displaySanPham(listSanPham);
+        document.getElementById("txtSanPham").value = "";
+        document.getElementById("saved").innerHTML = "";
 
-    function savePrd(i) {
-        let nameEdit = document.getElementById('nameIpt').value;
-        let priceEdit = document.getElementById('priceIpt').value;
-        prdList[i].name = nameEdit;
-        prdList[i].price = priceEdit;
-        displayPrd(prdList);
-        document.getElementById('nameIpt').value = "";
-        document.getElementById('priceIpt').value = "";
-        document.getElementById('btnEdit').innerHTML = "";
+
     }
 </script>
 </body>

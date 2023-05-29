@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<h2>Menu</h2>
+<div id="dpl"></div>
+<button>Order</button>
+<div id="total"></div>
+<script>
+    class Menu {
+        constructor(name, price) {
+            this.name = name;
+            this.price = price
+        }
+    }
+
+    let product1 = new Menu("Cà phê", 15000);
+    let product2 = new Menu("Cam vắt", 20000);
+    let product3 = new Menu("Nước ép cà rốt", 20000);
+    let product4 = new Menu("Nước ép cà chua", 20000);
+    let product5 = new Menu("Nước lọc", 5000);
+    let product6 = new Menu("Nước dừa", 25000);
+    let productList = [];
+    productList.push(product1, product2, product3, product4, product5, product6);
+    displayMenu(productList);
+
+    function displayMenu(list) {
+        let sortMenu = `<table border="1" style="border-collapse: collapse">`
+        sortMenu += `<tr>
+                        <td></td>
+                        <th>Tên</th>
+                        <th>Giá</th>
+                        <th>Số lượng</th>
+                        <th>Thành tiền</th>
+                    </tr>`
+        for (let i = 0; i < list.length; i++) {
+            // let amount = document.getElementById("priceIpt").value;
+            // let intoMoney = amount * list[i].price;
+            sortMenu += `<tr>`;
+            sortMenu += `<td>${i + 1}</td>`;
+            sortMenu += `<td>${list[i].name}</td>`
+            sortMenu += `<td>${list[i].price}</td>`
+            sortMenu += `<td><input id="priceIpt` + i + `"
+onchange="document.getElementById('spanThanhTien' + this.id.charAt(this.id.length - 1)).innerText   = (this.value * productList[this.id.charAt(this.id.length - 1)].price)" type="number"></td>`
+            sortMenu += `<td><span id="spanThanhTien` + i + `">` + list[i].price * (document.getElementById("priceIpt" + i) !== null ? document.getElementById("priceIpt" + i).value : 0) + `</span></td>`
+
+            sortMenu += `</tr>`;
+        }
+        sortMenu += `</table>`;
+        document.getElementById("dpl").innerHTML = sortMenu;
+
+    }
+
+    //document.getElementById('spanThanhTien' + i +).innerHTML =
+
+
+    function totalOrder() {
+        let intoMoney;
+        for (let i = 0; i < productList.length; i++ ){
+            document.getElementById(`spanThanhTien` + i);
+
+
+        }
+
+
+    }
+
+
+</script>
+
+</body>
+</html>

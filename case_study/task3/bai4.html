@@ -6,22 +6,34 @@
 </head>
 <body>
 <h2>Menu</h2>
-<ol>
-    <li><button onclick="cafe()">Cafe</button></li>
-    <li><button>Cam vắt</button></li>
-    <li><button>Nước ép cà rốt</button></li>
-    <li><button>Nước ép cà chua</button></li>
-    <li><button>Nước lọc</button></li>
-    <li><button>Nước dừa</button></li>
-</ol>
+<div id="dplMenu"></div>
+<button onclick="order()">Order</button>
 <script>
-    function cafe() {
-        let gia = 15000;
-        let thanhTien = 0;
-        alert("Cafe: 15000");
-        let soLuong = prompt("Mời nhập số lượng: ");
-        thanhTien = soLuong * gia;
-        alert("Bạn vui lòng thanh toán số tiền: " + thanhTien)
+    let menu = ["Cà phê", "Cam vắt", "Nước ép cà rốt", "Nước ép cà chua", "Nước lọc", "Nước dừa"];
+    let price = [10000, 15000, 20000, 25000, 5000, 30000];
+
+    function dispMenu(menu,price) {
+        let sortMenu = `<ol>`;
+        for (let i = 0; i < menu.length; i++){
+            sortMenu += `<li>${menu[i]}: ${price[i]}</li>`
+        }
+        sortMenu += `</ol>`;
+        document.getElementById("dplMenu").innerHTML = sortMenu;
+    }
+    dispMenu(menu,price)
+
+    function order (){
+        let choice;
+        do {
+            choice = +prompt("Vui lòng nhập STT của thức uống: ");
+        }
+
+        while (choice < 0 || choice > 7 )
+
+        let amount = +prompt(`Nhập số lượng ${menu[choice - 1]} bạn muốn order: `);
+        alert(`Cái giá phải trả: ${price[choice - 1] * amount }`);
+
+
     }
 
 </script>

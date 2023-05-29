@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    let text = prompt("Enter the text: ");
+    let arr = text.split("");
+    let arrB = [];
+    function differentSymbolsNaive(arr){
+        for (let i = 0; i < arr.length; i++) {
+            if (arrB.indexOf(arr[i]) === -1) {
+                arrB.push(arr[i]);
+
+            }
+        }
+        document.write(`Có ${arrB.length} ký tự khác nhau </br>`);
+        document.write(arrB);
+    }
+
+    differentSymbolsNaive(arr);
+
+
+
+</script>
+</body>
+</html>

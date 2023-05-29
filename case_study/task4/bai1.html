@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // let text = "tRuong TaN HAI";
+    let text = prompt("Enter the text")
+    let arr = text.split(" ");
+    let newText = [];
+    let maxStr = 0;
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].toLowerCase();
+        newText = arr[i].split("");
+        newText[0] = newText[0].toUpperCase();
+        if (newText.length > maxStr){
+            maxStr = newText.length;
+        }
+
+        arr[i] = newText.join(``);
+
+    }
+    arr = arr.join(` `);
+    console.log(arr);
+    console.log(maxStr)
+</script>
+</body>
+</html>
