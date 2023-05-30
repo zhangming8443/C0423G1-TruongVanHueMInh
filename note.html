@@ -5,72 +5,9 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Add New Product</h2>
-<input type="text" id="txtSanPham">
-<input type="button" onclick="addSanPham()" value="Add">
-<div id="saved"></div>
-<h2>Display All Product</h2>
-<div id="tableSp"></div>
+<input type="text" class="form-control" placeholder="Username" >
 <script>
-    class sanPham {
-        constructor(name) {
-            this.name = name;
-        }
-    }
 
-    let sanPham1 = new sanPham("Sony Xperia");
-    let sanPham2 = new sanPham("Samsung Galaxy");
-    let sanPham3 = new sanPham("Nokia 6");
-    let listSanPham = [];
-    listSanPham.push(sanPham1, sanPham2, sanPham3);
-    displaySanPham(listSanPham);
-
-    function displaySanPham(list) {
-        let tableStr = `<table border="1" style="border-collapse: collapse">`;
-        tableStr += `<tr>
-                        <th>Product Name</th>
-                    </tr>`;
-        for (let i = 0; i < list.length; i++) {
-            tableStr += `<tr>`;
-            tableStr += `<td>${list[i].name}</td>`
-            tableStr += `<td><button onclick="editSanPham(${i})">Edit</button></td>`
-            tableStr += `<td><button onclick="deleteSanPham(${i})">Delete</button></td>`
-            tableStr += `</tr>`;
-
-        }
-        tableStr += `</table>`
-        document.getElementById("tableSp").innerHTML = tableStr;
-    }
-
-    function addSanPham() {
-        let nameAdd = document.getElementById("txtSanPham").value;
-        let newSanPham = new sanPham(nameAdd);
-        listSanPham.push(newSanPham);
-        displaySanPham(listSanPham);
-        document.getElementById("txtSanPham").value = "";
-    }
-
-    function deleteSanPham(i) {
-        listSanPham.splice(i,1);
-        displaySanPham(listSanPham);
-
-    }
-
-    function editSanPham(i) {
-        document.getElementById("txtSanPham").value = listSanPham[i].name;
-        let text = `<button onclick="saveSanPham(${i})">Save</button>`;
-        document.getElementById("saved").innerHTML = text;
-    }
-
-    function saveSanPham(i) {
-        let nameEdit = document.getElementById("txtSanPham").value;
-        listSanPham[i].name = nameEdit;
-        displaySanPham(listSanPham);
-        document.getElementById("txtSanPham").value = "";
-        document.getElementById("saved").innerHTML = "";
-
-
-    }
 </script>
 </body>
 </html>

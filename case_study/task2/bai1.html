@@ -6,11 +6,11 @@
 </head>
 <body>
 <script>
-    // let h = +prompt("Mời nhập chiều cao: ")
-    for (let i = 0; i < 5  ; i++) {
+    let h = +prompt("Mời nhập chiều cao: ")
+    for (let i = 0; i < h  ; i++) {
         debugger
         for (let j = 0; j <= i; j++) {
-            if (i === j || j === 0 || i === 4) {
+            if (i === j || j === 0 || i === h-1) {
                 document.write(`*`);
             } else {
                 document.write(`&nbsp&nbsp`);

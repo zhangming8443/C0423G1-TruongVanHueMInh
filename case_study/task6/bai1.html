@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="background-color: black">
+<div id="tbldpl"></div>
+<button class="btn btn-primary" onclick="addStudent()">Thêm mới học viên</button>
+<button class="btn btn-secondary" onclick="editStudent()">Sửa thông tin học viên</button>
+<button class="btn btn-danger" onclick="deleteStudent()">Xóa học viên</button>
+<hr style="color: white">
+<div id="funcEdit"></div>
+<script>
+    class StudentCG {
+        constructor(maHocVien, ten, lop, email, ngaySinh) {
+
+            this.maHocVien = maHocVien;
+            this.ten = ten;
+            this.lop = lop;
+            this.email = email;
+            this.ngaySinh = ngaySinh;
+        }
+    }
+
+    let student1 = new StudentCG("HV-0001", "Nguyễn Văn A", "C1022G1", "nguyenvana@gmail.com", "01/01/2004");
+    let student2 = new StudentCG("HV-0002", "Nguyễn Văn B", "C3023G9", "nguyenvanb@gmail.com", "02/02/2004");
+    let student3 = new StudentCG("HV-0003", "Nguyễn Văn C", "C0523H1", "nguyenvanc@gmail.com", "03/03/2004");
+    let listStudent = [];
+    listStudent.push(student1, student2, student3);
+    console.log(listStudent);
+
+    function displayStudent(list) {
+        let tableStr = `<table class="table table-dark table-hover">`
+        tableStr += `<tr>
+                        <th>Mã học viên</th>
+                        <th>Tên</th>
+                        <th>Lớp</th>
+                        <th>Email</th>
+                        <th>Ngày sinh</th>
+                    </tr>`;
+        for (let i = 0; i < list.length; i++) {
+            tableStr += `<tr>`
+            tableStr += `<td>${list[i].maHocVien}</td>`;
+            tableStr += `<td>${list[i].ten}</td>`;
+            tableStr += `<td>${list[i].lop}</td>`;
+            tableStr += `<td>${list[i].email}</td>`;
+            tableStr += `<td>${list[i].ngaySinh}</td>`;
+            tableStr += `</tr>`
+        }
+        tableStr += `</table>`
+        document.getElementById("tbldpl").innerHTML = tableStr;
+    }
+
+    displayStudent(listStudent);
+
+    function addStudent() {
+        let maHocVien = prompt("Nhập mã học viên");
+        let ten = prompt("Nhập tên");
+        let lop = prompt("Nhập lớp").toUpperCase();
+        let email = prompt("Nhập gmail");
+        let ngaySinh = prompt("Nhập ngày sinh");
+        let newStudent = new StudentCG(maHocVien, ten, lop, email, ngaySinh);
+        listStudent.push(newStudent);
+        displayStudent(listStudent);
+    }
+
+    console.log(listStudent);
+
+    function deleteStudent() {
+        let i;
+        let dlHocVien = prompt("Nhập mã học viên muốn xóa");
+        let flag = false;
+        for (i = 0; i < listStudent.length; i++) {
+            if (dlHocVien === listStudent[i].maHocVien) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag === true) {
+            let ans = confirm(`Bạn có muốn xóa ${listStudent[i].maHocVien}`);
+            if (ans === true) {
+                listStudent.splice(i, 1);
+            }
+        } else {
+            alert("Không có học viên này !");
+        }
+        displayStudent(listStudent);
+    }
+
+    let studentEdit;
+    function editStudent() {
+        let i;
+        let editHocVien = prompt("Nhập mã học viên muốn sửa");
+        let flag = false;
+        for (i = 0; i < listStudent.length; i++) {
+            if (editHocVien === listStudent[i].maHocVien) {
+                flag = true;
+                break;
+            }
+        }
+        if (flag === true) {
+            let ans = confirm(`Bạn có muốn sửa ${listStudent[i].maHocVien}`);
+            studentEdit = listStudent[i];
+            if (ans === true) {
+                let text = `<input id="txtMaHV" type="text" class="form-control" placeholder="Nhập mã học viên" readonly>
+                            <br/>
+                            <input id="txtTen" type="text" class="form-control" placeholder="Nhập tên">
+                            <br/>
+                            <input id="txtLop" type="text" class="form-control" placeholder="Nhập lớp">
+                            <br/>
+                            <input id="txtEmail" type="text" class="form-control" placeholder="Nhập email">
+                            <br/>
+                            <input id="txtNgaySinh" type="text" class="form-control" placeholder="Nhập ngày sinh">
+                            <br>
+                            <button onclick="saveStudent()" type="button" class="btn btn-success">Save</button>`;
+                document.getElementById("funcEdit").innerHTML = text;
+                document.getElementById("txtMaHV").value = listStudent[i].maHocVien;
+                document.getElementById("txtTen").value = listStudent[i].ten;
+                document.getElementById("txtLop").value = listStudent[i].lop;
+                document.getElementById("txtEmail").value = listStudent[i].email;
+                document.getElementById("txtNgaySinh").value = listStudent[i].ngaySinh;
+            }
+        } else {
+            alert("Không có học viên này !");
+        }
+    }
+
+    function saveStudent() {
+        let mhvEdit = document.getElementById("txtMaHV").value;
+        let tenEdit = document.getElementById("txtTen").value;
+        let lopEdit = document.getElementById("txtLop").value;
+        let emailEdit = document.getElementById("txtEmail").value;
+        let ngaySinhEdit = document.getElementById("txtNgaySinh").value;
+        studentEdit.maHocVien = mhvEdit;
+        studentEdit.ten = tenEdit;
+        studentEdit.lop = lopEdit;
+        studentEdit.email = emailEdit;
+        studentEdit.ngaySinh = ngaySinhEdit;
+        displayStudent(listStudent);
+    }
+</script>
+</body>
+</html>
